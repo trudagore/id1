@@ -117,7 +117,8 @@
 			justify-content: center;
 			height: 100%;
 			background: url(bg.jpg) no-repeat center center;
-			baclground-position: coverl
+			  background-size: cover;
+}
 		}
 		.window{
 			z-index: 100;
@@ -491,17 +492,13 @@
 		}
 
 		// $(function(){
-			var win = window.frames['frameSite'].contentWindow;
+			//var win = window.frames['frameSite'].contentWindow;
 			// console.log(window.frames['frameSite']);
-			win.document.body.onclick = function() {
-        win.contentWindow.location.reload();
-    	}
-      // win.postMessage(JSON.stringify({
+			//win.document.body.onclick = function() {
+        //win.contentWindow.location.reload();
+    	//}
 
-      //     key: 'idex_app_v2',
-      //     data: '{"wallet":{"walletAuthToken":"","walletAddress":"","walletAddressOriginal":"","walletType":null},"pendingDepositsV3":"{\"pendingMap\":{},\"confirmationsCounts\":{}}","liquidityChanges":[],"selectedChartType":"tradingView","notices":{"bannersPolygon":{},"notificationsPolygon":{},"bannersEth":{},"notificationsEth":{},"bannersBsc":{},"notificationsBsc":{},"customNotifications":{}},"region":{"currentRegion":"GLOBAL","userRegion":"GLOBAL","restrictedRegion":false},"userSettingsV2":{"dismissedNotices":[],"favoriteMarkets":[]},"userMarketTickSize":{},"firstBalancesAfterUnlock":false,"displayStakingBubble":false,"closedIncorrectWalletChainId":false,"closedLargeSpreadMarketOrderWarning":false,"closedWelcomeModal":true,"visitedPages":{},"hideZeroBalance":true}'
-
-      // }), "*");
+      
 
 			
 		// })
